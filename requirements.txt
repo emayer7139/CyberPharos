@@ -1,0 +1,16 @@
+# CyberPharos Project Requirements
+
+# Core libraries
+requests>=2.28.1          # For making HTTP requests to threat intelligence APIs such as VirusTotal
+matplotlib>=3.6           # For data visualization and dashboarding
+
+# Environment management
+python-dotenv>=1.0.0      # To load environment variables from a .env file, useful for managing sensitive keys
+
+# Testing (optional but highly recommended)
+pytest>=7.0.1             # For writing and running unit tests
+
+# Code Quality (optional but recommended)
+flake8>=4.0.1             # For linting your code and ensuring coding standards are met
+black>=22.3.0            # For automatic code formatting
+isort>=5.10.1            # For sorting imports in a consistent way  

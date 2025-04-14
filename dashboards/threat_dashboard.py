@@ -85,7 +85,7 @@ def get_live_data():
     Returns:
         list of dict: List of enriched log entries. Each entry will have an 'ip' key added for plotting.
     """
-    ndjson_file_path = "sample_logs.ndjson"  # Ensure this file exists with appropriate NDJSON logs
+    ndjson_file_path = "sample_logs.ndjson"  
     logs = parse_ndjson_log(ndjson_file_path)
     
     vt_api_key = os.environ.get("VIRUSTOTAL_API_KEY")
