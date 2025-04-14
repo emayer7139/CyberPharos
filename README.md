@@ -34,10 +34,10 @@ CyberPharos is a comprehensive cybersecurity analytics and incident response pla
 
 2. **Set Up a Virtual Environment**
 python -m venv venv
-# Activate the virtual environment
-# Windows:
+### Activate the virtual environment
+### Windows:
 venv\Scripts\activate
-# Linux/Mac:
+### Linux/Mac:
 source venv/bin/activate
 
 3. **Install Dependencies**
