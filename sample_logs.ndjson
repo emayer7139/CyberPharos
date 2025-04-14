@@ -1,0 +1,17 @@
+{"timestamp": "2025-04-14T08:00:00Z", "host": "8.8.8.8", "message": "System startup log entry", "level": "INFO"}
+{"timestamp": "2025-04-14T08:05:00Z", "host": "1.1.1.1", "message": "User login successful", "level": "INFO"}
+{"timestamp": "2025-04-14T08:10:00Z", "host": "8.8.4.4", "message": "Failed password attempt detected", "level": "WARN"}
+{"timestamp": "2025-04-14T08:15:00Z", "host": "8.8.8.8", "message": "Configuration change applied", "level": "INFO"}
+{"timestamp": "2025-04-14T08:20:00Z", "host": "1.1.1.1", "message": "Unexpected shutdown warning", "level": "ERROR"}
+{"timestamp": "2025-04-14T08:25:00Z", "host": "8.8.8.8", "message": "Network connectivity restored", "level": "INFO"}
+{"timestamp": "2025-04-14T08:30:00Z", "host": "8.8.4.4", "message": "Potential security breach detected", "level": "CRITICAL"}
+{"timestamp": "2025-04-14T08:35:00Z", "host": "1.1.1.1", "message": "User logout", "level": "INFO"}
+{"timestamp": "2025-04-14T08:40:00Z", "host": "8.8.8.8", "message": "System backup completed", "level": "INFO"}
+{"timestamp": "2025-04-14T08:45:00Z", "host": "8.8.4.4", "message": "Software update installed", "level": "INFO"}
+{"timestamp": "2025-04-14T09:00:00Z", "host": "8.8.8.8", "message": "Inbound connection detected from DNS server.", "level": "INFO"}
+{"timestamp": "2025-04-14T09:05:00Z", "host": "1.1.1.1", "message": "Multiple failed login attempts observed.", "level": "CRITICAL"}
+{"timestamp": "2025-04-14T09:10:00Z", "host": "185.62.189.128", "message": "Malicious web request detected; potential phishing attempt.", "level": "CRITICAL"}
+{"timestamp": "2025-04-14T09:15:00Z", "host": "104.27.141.229", "message": "DDoS traffic pattern identified from IP address.", "level": "CRITICAL"}
+{"timestamp": "2025-04-14T09:20:00Z", "host": "208.67.222.222", "message": "Suspicious activity: unexpected outbound traffic.", "level": "WARNING"}
+{"timestamp": "2025-04-14T09:25:00Z", "host": "185.220.101.4", "message": "VPN connection logged; verify for unauthorized access.", "level": "INFO"}
+

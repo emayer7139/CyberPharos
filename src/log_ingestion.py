@@ -6,6 +6,7 @@ A module for ingesting and parsing logs from multiple formats:
 - Syslog lines
 - JSON-formatted logs
 - CSV logs
+- NDJSON logs
 
 This file contains functions to parse each log format and a helper function 
 to process an entire file. All error handling is performed via logging.
@@ -76,13 +77,38 @@ def parse_csv_log(csv_file_path):
         logging.error("Error reading CSV file: %s", e)
     return logs
 
+def parse_ndjson_log(ndjson_file_path):
+    """
+    Parse an NDJSON file containing logs.
+    
+    Each line in the file is a separate JSON object.
+    
+    Parameters:
+        ndjson_file_path (str): The path to the NDJSON file.
+    
+    Returns:
+        list: A list of dictionaries, each representing a log entry.
+    """
+    logs = []
+    try:
+        with open(ndjson_file_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                try:
+                    log_entry = json.loads(line.strip())
+                    logs.append(log_entry)
+                except json.JSONDecodeError as e:
+                    logging.error("NDJSON decoding error: %s. Line: %s", e, line)
+    except Exception as e:
+        logging.error("Error reading NDJSON file: %s", e)
+    return logs
+
 def parse_logs_from_file(file_path, format):
     """
     Parse logs from a file given the file path and format.
     
     Parameters:
         file_path (str): Path to the log file.
-        format (str): The format of the logs ('syslog', 'json', or 'csv').
+        format (str): The format of the logs ('syslog', 'json', 'csv', or 'ndjson').
         
     Returns:
         list: A list of parsed log entries.
@@ -91,6 +117,8 @@ def parse_logs_from_file(file_path, format):
     try:
         if format.lower() == 'csv':
             return parse_csv_log(file_path)
+        elif format.lower() == 'ndjson':
+            return parse_ndjson_log(file_path)
         with open(file_path, 'r', encoding='utf-8') as file:
             if format.lower() == 'json':
                 # Each line in the file is a JSON formatted log

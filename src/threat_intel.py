@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+"""
+threat_intel.py
+
+This module integrates with VirusTotal to enrich log data with threat intelligence.
+It contains functions to fetch intelligence for a given IP and to enrich log entries.
+"""
+
 import os
 import requests
 import logging
@@ -11,43 +19,48 @@ def fetch_virustotal_intel(ip_address, api_key):
         api_key (str): Your VirusTotal API key.
         
     Returns:
-        dict or None: A dictionary containing the threat intelligence data if successful; 
-                      None if an error occurred.
+        dict or None: The JSON response from VirusTotal, or None if an error occurs.
     """
-    # VirusTotal API endpoint for IP address lookup (v3)
     base_url = f"https://www.virustotal.com/api/v3/ip_addresses/{ip_address}"
-    
-    headers = {
-        "x-apikey": api_key
-    }
-    
+    headers = {"x-apikey": api_key}
     try:
         response = requests.get(base_url, headers=headers, timeout=10)
-        response.raise_for_status()  # This raises an error for HTTP error codes
-        intel_data = response.json()  # Convert response to JSON
-        return intel_data
+        response.raise_for_status()
+        return response.json()
     except requests.RequestException as e:
         logging.error("Error fetching VirusTotal data for IP %s: %s", ip_address, e)
         return None
-    except ValueError as e:
-        # Handle JSON decoding error
-        logging.error("Error decoding VirusTotal response for IP %s: %s", ip_address, e)
-        return None
 
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+def enrich_log(log, api_key):
+    """
+    Enrich a single log dictionary using threat intelligence.
+    The log is expected to have a 'host' key containing an IP address.
     
-    # Example IP address. You can change it as needed.
-    sample_ip = "8.8.8.8"
-    
-    # Retrieve API key from environment or hardcode for testing
-    vt_api_key = os.environ.get("VIRUSTOTAL_API_KEY", "YOUR_ACTUAL_VIRUSTOTAL_API_KEY")
-    
-    if vt_api_key is None or vt_api_key == "YOUR_ACTUAL_VIRUSTOTAL_API_KEY":
-        logging.error("VirusTotal API key not properly set. Please set the VIRUSTOTAL_API_KEY environment variable or update your code.")
+    Parameters:
+        log (dict): A log entry.
+        api_key (str): VirusTotal API key.
+        
+    Returns:
+        dict: The original log with an additional 'intel' key for enrichment data.
+    """
+    ip = log.get("host", "")
+    # Basic IP address check: if the host consists of parts separated by '.' and each part is numeric.
+    if ip and all(part.isdigit() for part in ip.split('.')):
+        intel = fetch_virustotal_intel(ip, api_key)
+        log["intel"] = intel
     else:
-        intel = fetch_virustotal_intel(sample_ip, vt_api_key)
-        if intel:
-            logging.info("VirusTotal data for %s: %s", sample_ip, intel)
-        else:
-            logging.info("No data retrieved for IP %s", sample_ip)
+        log["intel"] = None
+    return log
+
+def enrich_logs(logs, api_key):
+    """
+    Enrich a list of log dictionaries.
+    
+    Parameters:
+        logs (list): List of log dictionaries.
+        api_key (str): VirusTotal API key.
+        
+    Returns:
+        list: The list of enriched logs.
+    """
+    return [enrich_log(log, api_key) for log in logs]
