@@ -14,3 +14,7 @@ pytest>=7.0.1             # For writing and running unit tests
 flake8>=4.0.1             # For linting your code and ensuring coding standards are met
 black>=22.3.0            # For automatic code formatting
 isort>=5.10.1            # For sorting imports in a consistent way  
+dash>= dash-bootstrap-components
+pandas>=1.4.0            # For data manipulation and analysis, especially if you're dealing with large datasets
+numpy>=1.22.0            # For numerical operations, especially if you're dealing with large datasets
+
