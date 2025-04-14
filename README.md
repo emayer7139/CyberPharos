@@ -32,17 +32,13 @@ CyberPharos is a comprehensive cybersecurity analytics and incident response pla
    git clone https://github.com/yourusername/CyberPharos.git
    cd CyberPharos
 
-- **Set Up a Virtual Environment**
-python -m venv venv
-### Activate the virtual environment
-### Windows:
-venv\Scripts\activate
-### Linux/Mac:
-source venv/bin/activate
 - **Install Dependencies**
+
 pip install --upgrade pip
 pip install -r requirements.txt
+
 - **Configure Environment Variables**
+
 Create a .env file (or set environment variables directly) with your VirusTotal API key:
 VIRUSTOTAL_API_KEY=your_virustotal_api_key_here
 If you are using python-dotenv, ensure you load the environment in your entry scripts.
