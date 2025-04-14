@@ -21,8 +21,19 @@ CyberPharos is a comprehensive cybersecurity analytics and incident response pla
 
 ## Project Structure
 
-
-
+cyberpharos/
+├── src/
+│   ├── __init__.py
+│   ├── log_ingestion.py
+│   └── threat_intel.py
+├── dashboards/
+│   └── threat_dashboard.py
+├── playbooks/
+├── docs/
+├── Dockerfile
+├── requirements.txt
+├── .gitignore
+└── README.md
 
 ## Installation
 
