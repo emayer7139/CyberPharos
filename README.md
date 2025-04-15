@@ -20,7 +20,7 @@ CyberPharos is a comprehensive cybersecurity analytics and incident response pla
   The project can be containerized using Docker, ensuring portability and ease of deployment across different environments.
 
 ## Project Structure
-
+```
 cyberpharos/
 ├── 📂 src/                            # Source code and core functionality
 │   ├── __init__.py                    # Package initialization
@@ -38,7 +38,7 @@ cyberpharos/
 ├── 📄 requirements.txt                # Python dependencies
 ├── 📄 .gitignore                      # Git ignore rules
 └── 📄 README.md                       # Project documentation and setup instructions
-
+```
 ## Installation
 
 - **Clone the Repository:**
