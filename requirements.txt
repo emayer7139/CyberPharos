@@ -5,16 +5,15 @@ requests>=2.28.1          # For making HTTP requests to threat intelligence APIs
 matplotlib>=3.6           # For data visualization and dashboarding
 
 # Environment management
-python-dotenv>=1.0.0      # To load environment variables from a .env file, useful for managing sensitive keys
+python-dotenv>=1.0.0      # To load environment variables from a .env file
 
 # Testing (optional but highly recommended)
 pytest>=7.0.1             # For writing and running unit tests
 
-# Code Quality (optional but recommended)
-flake8>=4.0.1             # For linting your code and ensuring coding standards are met
-black>=22.3.0            # For automatic code formatting
-isort>=5.10.1            # For sorting imports in a consistent way  
-dash>= dash-bootstrap-components
-pandas>=1.4.0            # For data manipulation and analysis, especially if you're dealing with large datasets
-numpy>=1.22.0            # For numerical operations, especially if you're dealing with large datasets
+# Dash libraries
+dash>=2.0.0               # Replace with the version you require
+dash-bootstrap-components # Add version specifier if necessary
 
+# Data processing libraries
+pandas>=1.4.0             # For data manipulation and analysis
+numpy>=1.22.0             # For numerical operations
