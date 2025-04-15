@@ -1,19 +1,18 @@
 # CyberPharos Project Requirements
 
 # Core libraries
-requests>=2.28.1          # For making HTTP requests to threat intelligence APIs such as VirusTotal
-matplotlib>=3.6           # For data visualization and dashboarding
-
+requests>=2.28.1
+matplotlib>=3.6  
 # Environment management
-python-dotenv>=1.0.0      # To load environment variables from a .env file
+python-dotenv>=1.0.0
 
 # Testing (optional but highly recommended)
-pytest>=7.0.1             # For writing and running unit tests
+pytest>=7.0.1      
 
 # Dash libraries
-dash>=2.0.0               # Replace with the version you require
-dash-bootstrap-components # Add version specifier if necessary
+dash>=2.0.0       
+dash-bootstrap-components
 
 # Data processing libraries
-pandas>=1.4.0             # For data manipulation and analysis
-numpy>=1.22.0             # For numerical operations
+pandas>=1.4.0
+numpy>=1.22.0
