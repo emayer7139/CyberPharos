@@ -49,12 +49,17 @@ cyberpharos/
 
 - **Install Dependencies**
 
+```
 pip install --upgrade pip
 pip install -r requirements.txt
+```
 
 - **Configure Environment Variables**
 
 Create a .env file (or set environment variables directly) with your VirusTotal API key:
+```
 VIRUSTOTAL_API_KEY=your_virustotal_api_key_here
+```
 If you are using python-dotenv, ensure you load the environment in your entry scripts.
 
+**This is a work in progress and will be for some time.***
